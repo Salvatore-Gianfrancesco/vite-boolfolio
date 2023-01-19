@@ -43,6 +43,14 @@ export default {
                 return techs;
             }
             return 'No technologies'
+        },
+        nextPage(currentPage) {
+            // console.log(this.apiUrl + '/api/projects?page=' + (currentPage + 1));
+            this.getProjects(this.apiUrl + '/api/projects?page=' + (currentPage + 1));
+        },
+        prevPage(currentPage) {
+            // console.log(this.apiUrl + '/api/projects?page=' + (currentPage - 1));
+            this.getProjects(this.apiUrl + '/api/projects?page=' + (currentPage - 1));
         }
     },
     mounted() {
@@ -74,6 +82,29 @@ export default {
                         </div>
                     </div>
                 </div>
+
+                <nav class="mt-3" aria-label="Page navigation">
+                    <ul class="pagination    ">
+                        <li class="page-item" :class="!projects.prev_page_url ? 'disabled' : ''">
+                            <button class="page-link" @click="prevPage(projects.current_page)" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </button>
+                        </li>
+
+                        <li class="page-item" v-for="i in projects.last_page">
+                            <button class="page-link" :class="projects.current_page == i ? 'active' : ''"
+                                @click="getProjects(apiUrl + '/api/projects?page=' + i)">
+                                {{ i }}
+                            </button>
+                        </li>
+
+                        <li class="page-item" :class="!projects.next_page_url ? 'disabled' : ''">
+                            <button class="page-link" @click="nextPage(projects.current_page)" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
             </template>
             <template v-else>
                 <h2>No projects stored...</h2>
