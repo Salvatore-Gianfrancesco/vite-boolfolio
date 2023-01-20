@@ -17,14 +17,12 @@ export default {
 
         axios.get(url)
             .then(response => {
-                if (response.data.results.length !== 0) {
-                    this.project = response.data.results[0];
+                if (response.data.success) {
+                    // console.log(response.data.results);
+                    this.project = response.data.results;
                     this.loading = false;
-                    // console.log(this.project);
                 } else {
-                    this.project = 'no-project';
                     this.loading = false;
-                    // console.log(this.project);
                 }
             }).catch(error => {
                 console.log(error);
@@ -39,7 +37,7 @@ export default {
             <h2>Loading project...</h2>
         </template>
         <template v-else>
-            <template v-if="project !== 'no-project'">
+            <template v-if="project">
                 <img class="img-fluid" :src="store.getImage(project.cover_img)" :alt="project.name">
 
                 <h1 class="my-3">{{ project.name }}</h1>
