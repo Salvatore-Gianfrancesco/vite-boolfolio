@@ -7,9 +7,16 @@ export default {
     data() {
         return {
             apiUrl: 'http://localhost:8000',
+            max: 100
         }
     },
     methods: {
+        trimBody(text) {
+            if (text.length > this.max) {
+                return text.slice(0, this.max) + '...'
+            }
+            return text
+        },
         getImage(img) {
             // console.log(img);
             if (img) {
@@ -49,7 +56,11 @@ export default {
                     <div><strong>Technologies</strong>: {{ getTechnologies(project) }}</div>
                 </div>
 
-                <p class="card-text">{{ project.body }}</p>
+                <p class="card-text">{{ trimBody(project.body) }}</p>
+
+                <router-link :to="{ name: 'single-project', params: { slug: project.slug } }" class="btn btn-primary">
+                    Read more
+                </router-link>
             </div>
         </div>
     </div>
@@ -62,6 +73,10 @@ export default {
         width: 100%;
         object-position: center;
         object-fit: cover;
+    }
+
+    p {
+        height: 5rem;
     }
 }
 </style>
