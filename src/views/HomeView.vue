@@ -1,4 +1,5 @@
 <script>
+import { store } from '../store';
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
 
@@ -9,9 +10,9 @@ export default {
     },
     data() {
         return {
-            apiUrl: 'http://localhost:8000',
             projects: null,
-            loading: true
+            loading: true,
+            store
         }
     },
     methods: {
@@ -29,16 +30,16 @@ export default {
                 });
         },
         nextPage(currentPage) {
-            // console.log(this.apiUrl + '/api/projects?page=' + (currentPage + 1));
-            this.getProjects(this.apiUrl + '/api/projects?page=' + (currentPage + 1));
+            // console.log(store.apiUrl + '/api/projects?page=' + (currentPage + 1));
+            this.getProjects(store.apiUrl + '/api/projects?page=' + (currentPage + 1));
         },
         prevPage(currentPage) {
-            // console.log(this.apiUrl + '/api/projects?page=' + (currentPage - 1));
-            this.getProjects(this.apiUrl + '/api/projects?page=' + (currentPage - 1));
+            // console.log(store.apiUrl + '/api/projects?page=' + (currentPage - 1));
+            this.getProjects(store.apiUrl + '/api/projects?page=' + (currentPage - 1));
         }
     },
     mounted() {
-        this.getProjects(this.apiUrl + '/api/projects');
+        this.getProjects(store.apiUrl + '/api/projects');
     }
 }
 </script>
@@ -66,7 +67,7 @@ export default {
 
                         <li class="page-item" v-for="i in projects.last_page">
                             <button class="page-link" :class="projects.current_page == i ? 'active' : ''"
-                                @click="getProjects(apiUrl + '/api/projects?page=' + i)">
+                                @click="getProjects(store.apiUrl + '/api/projects?page=' + i)">
                                 {{ i }}
                             </button>
                         </li>
