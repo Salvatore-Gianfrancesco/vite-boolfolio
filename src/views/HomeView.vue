@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import ProjectCard from './ProjectCard.vue';
+import ProjectCard from '../components/ProjectCard.vue';
 
 export default {
     name: "AppMain",
@@ -10,7 +10,8 @@ export default {
     data() {
         return {
             apiUrl: 'http://localhost:8000',
-            projects: null
+            projects: null,
+            loading: true
         }
     },
     methods: {
@@ -18,11 +19,13 @@ export default {
             axios
                 .get(url)
                 .then(response => {
-                    console.log(response.data.results);
+                    // console.log(response.data.results);
                     this.projects = response.data.results;
+                    this.loading = false;
                 })
                 .catch(error => {
                     console.error(error);
+                    this.loading = false;
                 });
         },
         nextPage(currentPage) {
@@ -41,8 +44,11 @@ export default {
 </script>
 
 <template>
-    <main>
-        <div class="container my-4">
+    <div class="container my-4">
+        <template v-if="loading">
+            <h2>Loading projects...</h2>
+        </template>
+        <template v-else>
             <template v-if="projects">
                 <h1 class="mb-3">Projects</h1>
 
@@ -73,11 +79,11 @@ export default {
                     </ul>
                 </nav>
             </template>
-            <template v-else>
-                <h2>No projects stored...</h2>
+            <template>
+                <h2>No project found...</h2>
             </template>
-        </div>
-    </main>
+        </template>
+    </div>
 </template>
 
 <style lang="scss" scoped>
