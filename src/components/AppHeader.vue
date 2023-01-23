@@ -16,16 +16,19 @@ export default {
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
                     <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                        <!-- home link -->
                         <li class="nav-item">
                             <router-link class="nav-link" :class="$route.name == 'home' ? 'active' : ''"
                                 :to="{ name: 'home' }">Home</router-link>
                         </li>
 
+                        <!-- about link -->
                         <li class="nav-item">
                             <router-link class="nav-link" :class="$route.name == 'about' ? 'active' : ''"
                                 :to="{ name: 'about' }">About</router-link>
                         </li>
 
+                        <!-- contacts link -->
                         <li class="nav-item">
                             <router-link class="nav-link" :class="$route.name == 'contacts' ? 'active' : ''"
                                 :to="{ name: 'contacts' }">Contact Us</router-link>

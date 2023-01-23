@@ -24,6 +24,6 @@ export const store = reactive({
             });
             return techs;
         }
-        return 'No technologies'
+        return 'No technologies';
     }
 })

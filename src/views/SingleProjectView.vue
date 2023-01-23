@@ -33,26 +33,29 @@ export default {
 
 <template>
     <div class="container my-4">
-        <template v-if="loading">
-            <h2>Loading project...</h2>
-        </template>
-        <template v-else>
-            <template v-if="project">
-                <img class="img-fluid" :src="store.getImage(project.cover_img)" :alt="project.name">
+        <!-- if loading is ended and there is the project -->
+        <div v-if="!loading && project">
+            <!-- project imgage or placeholder -->
+            <img class="img-fluid" :src="store.getImage(project.cover_img)" :alt="project.name">
 
-                <h1 class="my-3">{{ project.name }}</h1>
+            <!-- project title -->
+            <h1 class="my-3">{{ project.name }}</h1>
 
-                <div class="mb-2">
-                    <div><strong>Type</strong>: {{ store.getType(project) }}</div>
-                    <div><strong>Technologies</strong>: {{ store.getTechnologies(project) }}</div>
-                </div>
+            <!-- project type and technologies -->
+            <div class="mb-2">
+                <div><strong>Type</strong>: {{ store.getType(project) }}</div>
+                <div><strong>Technologies</strong>: {{ store.getTechnologies(project) }}</div>
+            </div>
 
-                <p>{{ project.body }}</p>
-            </template>
-            <template v-else>
-                <h2>No project found...</h2>
-            </template>
-        </template>
+            <!-- project body -->
+            <p>{{ project.body }}</p>
+        </div>
+
+        <!-- if loading is ended and there is NO project  -->
+        <h2 v-else-if="!loading">No project found...</h2>
+
+        <!-- loading project -->
+        <h2 v-else>Loading project...</h2>
     </div>
 </template>
 
