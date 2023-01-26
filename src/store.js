@@ -16,12 +16,13 @@ export const store = reactive({
         }
         return 'No type';
     },
-    getTechnologies(project) {
-        if (project.technologies.length > 0) {
-            let techs = '';
-            project.technologies.forEach(technology => {
-                techs = techs + technology.name + ' ';
-            });
+    getTechnologies(technologies) {
+        if (technologies.length > 0) {
+            let techs = technologies[0].name;
+
+            for (let i = 1; i < technologies.length; i++) {
+                techs = techs + ', ' + technologies[i].name;
+            }
             return techs;
         }
         return 'No technologies';

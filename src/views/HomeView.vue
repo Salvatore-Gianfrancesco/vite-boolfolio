@@ -1,95 +1,70 @@
 <script>
-import { store } from '../store';
-import axios from 'axios';
-import ProjectCard from '../components/ProjectCard.vue';
-
 export default {
     name: "HomeView",
-    components: {
-        ProjectCard
-    },
-    data() {
-        return {
-            projects: null,
-            loading: true,
-            store
-        }
-    },
-    methods: {
-        getProjects(url) {
-            axios
-                .get(url)
-                .then(response => {
-                    // console.log(response.data.results);
-                    this.projects = response.data.results;
-                    this.loading = false;
-                })
-                .catch(error => {
-                    console.error(error);
-                    this.loading = false;
-                });
-        },
-        nextPage(currentPage) {
-            // console.log(store.apiUrl + '/api/projects?page=' + (currentPage + 1));
-            this.getProjects(store.apiUrl + '/api/projects?page=' + (currentPage + 1));
-        },
-        prevPage(currentPage) {
-            // console.log(store.apiUrl + '/api/projects?page=' + (currentPage - 1));
-            this.getProjects(store.apiUrl + '/api/projects?page=' + (currentPage - 1));
-        }
-    },
-    mounted() {
-        this.getProjects(store.apiUrl + '/api/projects');
-    }
 }
 </script>
 
 <template>
-    <div class="container my-4">
-        <h1 class="mb-3">Projects</h1>
+    <div class="home_view">
+        <div class="container d-flex align-items-center flex-column gap-3 py-4">
+            <h1>Hello!</h1>
 
-        <!-- if loading is ended and there are projects  -->
-        <div v-if="!loading && projects">
-            <!-- project list -->
-            <div class="row row-cols-1 row-cols-md-3 g-3">
-                <ProjectCard v-for="project in projects.data" :project="project" />
-            </div>
+            <p>My name is Salvatore Gianfrancesco,<br>I'm a Full-Stack Developer Student.</p>
 
-            <!-- pagination navbar -->
-            <nav class="mt-3" aria-label="Page navigation">
-                <ul class="pagination    ">
-                    <li class="page-item" :class="!projects.prev_page_url ? 'disabled' : ''">
-                        <button class="page-link" @click.preventDefault()="prevPage(projects.current_page)"
-                            aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </button>
-                    </li>
+            <img src="../assets/img/profile-image.png" alt="profile image" class="rounded-circle">
 
-                    <li class="page-item" v-for="i in projects.last_page">
-                        <button class="page-link" :class="projects.current_page == i ? 'active' : ''"
-                            @click.preventDefault()="getProjects(store.apiUrl + '/api/projects?page=' + i)">
-                            {{ i }}
-                        </button>
-                    </li>
-
-                    <li class="page-item" :class="!projects.next_page_url ? 'disabled' : ''">
-                        <button class="page-link" @click.preventDefault()="nextPage(projects.current_page)"
-                            aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </button>
-                    </li>
-                </ul>
-            </nav>
+            <router-link class="see_my_work" :to="{ name: 'projects' }">See my work</router-link>
         </div>
-
-        <!-- if loading is ended and there are NO projects  -->
-        <h2 v-else-if="!loading">No project found...</h2>
-
-        <!-- loading projects  -->
-        <h2 v-else>Loading projects...</h2>
     </div>
 </template>
 
 <style lang="scss" scoped>
+@import '../styles/partials/variables';
 
+.home_view {
+    min-height: calc(100vh - 7rem);
+    padding-top: 6rem;
+    background-image: url('../assets/img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+
+    h1 {
+        font-size: 60px;
+        font-weight: 700;
+        color: $pf-white;
+    }
+
+    p {
+        color: $pf-white;
+    }
+
+    img {
+        width: 20%;
+        object-fit: cover;
+    }
+
+    .see_my_work {
+        color: $pf-light;
+        text-shadow: $pf-dark 0 0 5px;
+        font-size: 22px;
+        transition: 0.3s;
+
+        &:hover {
+            color: $pf-white;
+        }
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .home_view img {
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .home_view img {
+        width: 40%;
+    }
+}
 </style>

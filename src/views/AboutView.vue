@@ -6,50 +6,41 @@ export default {
 </script>
 
 <template>
-    <div class="container my-4">
-        <h1>About Section</h1>
+    <div class="about_view">
+        <div class="container my-4">
+            <h1>About Section</h1>
 
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum, architecto hic. Facere, quas officiis culpa
-            at maxime iste nisi rerum recusandae tempora eveniet quasi, molestiae ipsum? Pariatur deserunt nemo error
-            magnam deleniti quaerat, distinctio, id fugiat quibusdam perspiciatis vero voluptas maiores quisquam, ea
-            suscipit. Soluta, dolorum cum voluptate commodi sit ullam doloribus tempore voluptatum! Tenetur officiis,
-            obcaecati sequi libero labore reiciendis inventore, porro pariatur aliquam a quae. Numquam consectetur ea
-            est at tempore omnis? Unde corrupti praesentium commodi, hic saepe cum obcaecati officiis! Fugiat,
-            laboriosam cupiditate magnam, debitis, quas totam itaque necessitatibus asperiores odit dignissimos culpa
-            architecto. Sequi, unde est ex quaerat repellendus accusantium et porro a. Soluta officia dolorem quibusdam
-            quo eaque quisquam magnam, sapiente repudiandae doloremque veritatis ipsam ducimus laudantium, minima
-            exercitationem reprehenderit corrupti neque blanditiis, ut assumenda aut tempore repellendus. Placeat fugit
-            quibusdam quo ipsum eos officia repudiandae dolorem, accusamus eum? Similique, quasi fugiat. Totam deserunt
-            placeat, vero, aspernatur ducimus vel corrupti quo minima culpa nulla, adipisci assumenda fuga. Cum, quod?
-            Ab vero quod itaque quisquam, officia necessitatibus. Adipisci, fugit dolor. Quasi recusandae quisquam autem
-            perspiciatis, optio vitae nemo, at necessitatibus obcaecati, labore reiciendis nisi. Enim nobis nostrum
-            optio esse culpa sunt deleniti, iste autem illo quae quisquam eum magnam asperiores odio dolorem inventore
-            labore, aliquam nemo? Porro nemo quaerat eum facere odio in placeat. A deserunt vel maiores tempore velit
-            amet earum consequuntur, quae quidem exercitationem, dolorem minus saepe quo repellendus tempora unde
-            architecto suscipit. Ullam, nostrum eum atque earum cupiditate a impedit soluta harum, rerum, magnam
-            adipisci repellendus perferendis animi dolore modi fugit. Blanditiis laborum corporis cum architecto iste
-            suscipit, repellat eius praesentium dolorem? Nobis velit nemo minus sed hic, repellendus beatae, possimus
-            aliquam esse sapiente laudantium. Ab, quasi beatae quam qui consequuntur tempore hic, eaque nam nisi, eos
-            tempora neque culpa ut sit atque accusantium? Ea quam esse nobis harum ipsa in, molestias facere ullam
-            mollitia sed suscipit saepe pariatur ipsum corrupti ex ab, similique laudantium at iusto sunt! Quae,
-            corrupti molestiae inventore dicta hic velit perferendis quod numquam, quo neque esse libero atque vitae
-            voluptates ipsam cum sunt sequi voluptatibus accusamus quisquam tenetur quaerat. Pariatur accusantium
-            aperiam praesentium corporis, fugiat quam ut, non exercitationem eos ipsa dolorum? Quos magni rem
-            accusantium eum animi aut consectetur ratione eveniet nulla dignissimos veniam ex, repellat sit itaque ut
-            tenetur molestias minus perferendis fugit quia facilis, ipsa sequi cumque. Excepturi at dolorem nostrum,
-            neque modi placeat ducimus, quis facere maxime ullam hic nulla, ratione quibusdam obcaecati architecto iusto
-            dignissimos sint quo? Explicabo accusantium magni veniam, nobis tempora similique ut vero ducimus
-            voluptatibus porro laboriosam voluptas amet provident, voluptatem voluptate expedita! Tenetur sed odit magni
-            impedit explicabo, ullam debitis quaerat maiores quam, iste modi accusamus! Ea possimus minus recusandae
-            quibusdam. Corporis consequuntur atque vero repellendus, dicta, saepe temporibus, mollitia magnam vitae
-            repellat consectetur praesentium minima obcaecati quae soluta quod sequi quo officiis? Tempora repudiandae
-            dicta, iure officiis accusantium commodi quod sit. Sint aspernatur ad, adipisci illum amet doloribus a,
-            laudantium deserunt neque vel facere fugiat ex impedit assumenda.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam unde sequi saepe error. Dignissimos ipsam
+                eveniet totam illum enim laudantium ratione quo tempora, voluptates suscipit incidunt, fugiat, quidem
+                illo voluptatem iusto rem qui corrupti. Dolores eveniet et ea? Aliquid, eligendi quisquam. Ut eligendi
+                aspernatur porro officia reiciendis vero, tempora aperiam animi similique alias aliquid sint ipsam
+                voluptate quas illum non labore id est? Laboriosam cumque illo odit, enim ratione quasi, vitae debitis
+                praesentium cum neque iure minima eaque amet expedita asperiores magnam nesciunt saepe maxime architecto
+                commodi ut dicta quam quo. Veniam id reprehenderit quod nemo. Harum quas ab aperiam facilis earum in
+                facere? Facere dignissimos eum quod architecto minima nam blanditiis dolore, similique nobis omnis,
+                magni porro ut maxime, debitis praesentium pariatur quaerat recusandae totam quo accusantium cumque
+                eveniet et ab. Reprehenderit molestias, assumenda veniam, id optio iste ad consequuntur modi sed quasi
+                ex velit fugiat facilis ea recusandae ullam labore minus, sint minima exercitationem nesciunt
+                praesentium ducimus rem. Minus minima distinctio, placeat, officia architecto repellendus mollitia
+                pariatur repudiandae quibusdam accusantium maxime quis autem porro ullam rem aut deleniti laudantium?
+                Enim, possimus vero expedita ut adipisci sint beatae sequi, tenetur similique consequuntur ducimus
+                veniam repellendus repudiandae saepe! Esse sint accusantium fugit at eligendi voluptates! Quo atque, sed
+                nobis aliquam iure porro consequatur impedit excepturi quam ut ipsam libero omnis saepe quos! Sunt
+                repellendus facere vitae sed cupiditate, ex aspernatur, officiis odio dolor facilis suscipit totam
+                accusamus tempore beatae dolorum? Numquam doloribus consectetur omnis nam modi officiis atque quia sit!
+                Aperiam rerum similique soluta, facilis eligendi quas voluptas adipisci nobis vel minima ab saepe optio
+                harum nihil tempora molestiae natus illo, magnam, explicabo pariatur ipsam odit culpa consectetur. Esse
+                voluptas, aut at dicta nobis excepturi doloribus neque modi unde veritatis itaque sequi quos,
+                consequatur voluptate molestias amet. Similique, asperiores necessitatibus.</p>
+        </div>
     </div>
 </template>
 
 
 <style lang="scss" scoped>
-
+.about_view {
+    min-height: calc(100vh - 7rem);
+    padding-top: 6rem;
+}
 </style>
 

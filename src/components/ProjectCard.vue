@@ -11,62 +11,67 @@ export default {
             max: 100,
             store
         }
-    },
-    methods: {
-        trimBody(text) {
-            if (text && text.length > this.max) {
-                return text.slice(0, this.max) + '...';
-            }
-            return text;
-        }
     }
 }
 </script>
 
 <template>
     <div class="col">
-        <div class="card h-100">
-            <img class="card-img-top" :src="store.getImage(project.cover_img)" :alt="project.name">
-            <div class="card-body">
-                <!-- project name -->
-                <h4 class="card-title">{{ project.name }}</h4>
+        <router-link :to="{ name: 'single-project', params: { slug: project.slug } }">
+            <div class="project_card">
+                <img :src="store.getImage(project.cover_img)" :alt="project.name">
 
-                <!-- project type and technologies -->
-                <div class="mb-2">
-                    <div><strong>Type</strong>: {{ store.getType(project) }}</div>
-                    <div><strong>Technologies</strong>: {{ store.getTechnologies(project) }}</div>
+                <div class="card_body h-100 w-100 d-flex flex-column justify-content-center">
+                    <!-- project type -->
+                    <div class="fs-5">{{ store.getType(project) }}</div>
+
+                    <!-- project name -->
+                    <h3 class="card-title">{{ project.name }}</h3>
+
+                    <!-- project technologies -->
+                    <div class="d-flex gap-1 pt-2" v-if="project.technologies.length > 0">
+                        <img :src="store.apiUrl + '/storage/' + technology.icon" :alt="technology.name"
+                            v-for="technology in project.technologies">
+                    </div>
                 </div>
 
-                <!-- project body -->
-                <p class="card-text">{{ trimBody(project.body) }}</p>
-
-                <!-- link to single project view -->
-                <router-link :to="{ name: 'single-project', params: { slug: project.slug } }" class="btn btn-primary">
-                    Read more
-                </router-link>
             </div>
-        </div>
+        </router-link>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.card {
-    box-shadow: 0px 0px 5px -3px black;
+@import '../styles/partials/variables';
+
+.project_card {
+    position: relative;
     transition: 0.25s;
 
     img {
         height: 15rem;
         width: 100%;
-        object-position: center;
         object-fit: cover;
+        object-position: top center;
     }
 
-    p {
-        height: 5rem;
+    .card_body {
+        background-color: $pf-shadow;
+        color: $pf-white;
+        padding-left: 5rem;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        img {
+            height: 2rem;
+            width: 2rem;
+        }
     }
 
-    &:hover {
-        box-shadow: 0px 0px 10px -5px black;
+    &:hover .card_body {
+        visibility: visible;
+        transition: 0.5s;
     }
 }
 </style>
